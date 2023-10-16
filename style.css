@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/**
+ * Normarize
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+@media (max-width: 599.9px) {
+  html {
+    font-size: 3.84vw;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #333333;
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-weight: 500;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+figure {
+  display: block;
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  text-align: left;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+/**
+ * Calendar
+ */
+.calendar {
+  width: 30rem;
+  margin: 3rem auto;
+}
+.calendar__control {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+.calendar__prev, .calendar__next {
+  display: block;
+  width: 4.5rem;
+  font-size: 87.5%;
+  text-align: center;
+}
+.calendar__view {
+  margin: auto;
+}
+.calendar__view tr {
+  border-bottom: 1px solid #999999;
+}
+.calendar__view tr:first-child {
+  border-top: 1px solid #999999;
+}
+.calendar__view th, .calendar__view td {
+  width: 60px;
+  height: 45px;
+  border-right: 1px solid #999999;
+  text-align: center;
+}
+.calendar__view th:first-child, .calendar__view td:first-child {
+  border-left: 1px solid #999999;
+  color: red;
+}
+.calendar__view th:last-child, .calendar__view td:last-child {
+  color: blue;
+}

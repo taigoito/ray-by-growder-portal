@@ -1,0 +1,52 @@
+/**
+ * Calendar
+ */
+
+.calendar {
+  width: 30rem;
+  margin: 3rem auto;
+
+  &__control {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: .75rem;
+  }
+
+  &__prev, &__next {
+    display: block;
+    width: 4.5rem;
+    font-size: 87.5%;
+    text-align: center;
+  }
+
+  &__view {
+    margin: auto;
+
+    tr {
+      border-bottom: 1px solid #999999;
+
+      &:first-child {
+        border-top: 1px solid #999999;
+      }
+    }
+
+    th, td {
+      width: 60px;
+      height: 45px;
+      border-right: 1px solid #999999;
+      text-align: center;
+
+      &:first-child {
+        border-left: 1px solid #999999;
+        color: red;
+      }
+    
+      &:last-child {
+        color: blue;
+      }
+    }
+  }
+}
