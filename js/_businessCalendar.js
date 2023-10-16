@@ -9,7 +9,12 @@ import Calendar from './_calendar.js';
 export default class BusinessCalendar extends Calendar {
   async makeCalendar(year, month) {
     super.makeCalendar(year, month);
-    this._setStatus();
+
+    // データを取得して、状態値を反映
+    const url = this.options.url;
+    const res = await fetch(`${url}datestatus.json`);
+    const data = await res.json();
+    this._setStatus(data);
   }
 
   _handleEvents() {
@@ -25,16 +30,18 @@ export default class BusinessCalendar extends Calendar {
     this._body.addEventListener('click', (event) => this._cellClickHandler(event));
   }
 
-  _setStatus() {
+  _setStatus(data) {
     const elems = this._body.querySelectorAll('[data-date]');
     elems.forEach((td) => {
-      // 週のデフォルト値
+      const date = td.dataset.date;
       const week = td.dataset.week;
+
+      // 週のデフォルト値
       let state = (week == 0) ? 0 : (week == 6) ? 1 : 2;
 
-      //
-      // データがあれば、状態値を上書きする処理を書く
-      //
+      // データがあれば、状態値を上書き
+      const keys = Object.keys(data);
+      if (keys.includes(date)) state = data[date];
 
       td.dataset.state = state;
     });
@@ -50,9 +57,16 @@ export default class BusinessCalendar extends Calendar {
     state = (state + 1) % 3;
     target.dataset.state = state;
 
-    //
-    // データの更新をPUTする処理を書く
-    //
+    // データの更新をPUT
+    const url = this.options.url;
+    const date = target.dataset.date;
 
+    fetch(`${url}datestatus/${date}.json`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: state
+    });
   }
 }
