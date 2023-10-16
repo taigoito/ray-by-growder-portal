@@ -1,0 +1,19 @@
+/**
+ * Icon
+ */
+
+.icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 1.5rem 0.75rem 0.75rem;
+  cursor: pointer;
+
+  &.--refresh {
+    background: url("./assets/refresh.svg") no-repeat 50% 50% / contain scroll;
+  }
+
+  &.--trash {
+    background: url("./assets/trash.svg") no-repeat 50% 50% / contain scroll;
+  }
+}

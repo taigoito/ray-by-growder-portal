@@ -7,6 +7,11 @@
 // Config
 import { url } from './config.js';
 
+import Newsfeed from './_newsfeed.js';
+new Newsfeed({
+  url: url
+});
+
 import BusinessCalendar from './_businessCalendar.js';
 new BusinessCalendar({
   url: url

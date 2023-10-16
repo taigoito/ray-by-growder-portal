@@ -56,6 +56,65 @@ button, input, select, textarea {
 }
 
 /**
+ * News
+ */
+.news {
+  width: 60rem;
+  margin: 3rem auto;
+}
+.news__heading {
+  text-align: center;
+}
+.news__feed {
+  margin: auto;
+  text-align: center;
+}
+.news__overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 24rem;
+  background-color: #f4f4f4;
+}
+.news__overlay.--collapse {
+  display: none;
+}
+.news__overlay .icon {
+  animation: rotate 1s linear infinite;
+}
+.news tr {
+  border-bottom: 1px solid #999999;
+}
+.news tr:first-child {
+  border-top: 1px solid #999999;
+}
+.news td {
+  padding: 0.75rem 0.375rem;
+  vertical-align: top;
+}
+.news td:nth-child(1) {
+  width: 9rem;
+}
+.news td:nth-child(2) {
+  width: 45rem;
+}
+.news td:nth-child(3) {
+  width: 45rem;
+}
+.news td input, .news td textarea {
+  width: calc(100% - 0.75rem);
+}
+.news td textarea {
+  resize: none;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+/**
  * Calendar
  */
 .calendar {
@@ -65,6 +124,9 @@ button, input, select, textarea {
 }
 .calendar.--editMode {
   background: rgba(128, 255, 255, 0.3);
+}
+.calendar__heading {
+  text-align: center;
 }
 .calendar__mode {
   text-align: right;
@@ -117,4 +179,21 @@ button, input, select, textarea {
 }
 .calendar__view td[data-state="2"] {
   background: rgba(128, 255, 128, 0.5);
+}
+
+/**
+ * Icon
+ */
+.icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 1.5rem 0.75rem 0.75rem;
+  cursor: pointer;
+}
+.icon.--refresh {
+  background: url("./assets/refresh.svg") no-repeat 50% 50%/contain scroll;
+}
+.icon.--trash {
+  background: url("./assets/trash.svg") no-repeat 50% 50%/contain scroll;
 }

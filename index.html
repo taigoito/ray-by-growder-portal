@@ -9,7 +9,23 @@
   </head>
   <body>
     <main>
+      <div id="news" class="news">
+        <h2 class="news__heading">お知らせ</h2>
+        <table class="news__feed"></table>
+        <div class="news__overlay --collapse">
+          <span class="icon --refresh"></span>
+        </div>
+        <template id="newsTemplate">
+          <tr class="news__feedItem">
+            <td><input type="date" class="news__date">
+              <br><span class="icon --refresh"></span><span class="icon --trash"></span></td>
+            <td><textarea rows="2" class="news__text"></textarea>
+              <br><input type="url" class="news__href"></td>
+          </tr>
+        </template>
+      </div>
       <div id="calendar" class="calendar">
+        <h2 class="calendar__heading">営業日カレンダー</h2>
         <div class="calendar__mode">
           <select>
             <option value="0" selected>閲覧</option>
