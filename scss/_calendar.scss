@@ -5,6 +5,20 @@
 .calendar {
   width: 30rem;
   margin: 3rem auto;
+  padding-bottom: 1.5rem;
+
+  &.--editMode {
+    background: rgba(128, 255, 255, .3);
+  }
+
+  &__mode {
+    text-align: right;
+
+    select {
+      display: inline-block;
+      margin: 0 .75rem;
+    }
+  }
 
   &__control {
     display: flex;
@@ -46,6 +60,20 @@
     
       &:last-child {
         color: blue;
+      }
+    }
+
+    td {
+      &[data-state="0"] {
+        background: rgba(255, 128, 128, .5);
+      }
+    
+      &[data-state="1"] {
+        background: rgba(255, 255, 128, .5);
+      }
+    
+      &[data-state="2"] {
+        background: rgba(128, 255, 128, .5);
       }
     }
   }

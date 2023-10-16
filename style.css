@@ -61,6 +61,17 @@ button, input, select, textarea {
 .calendar {
   width: 30rem;
   margin: 3rem auto;
+  padding-bottom: 1.5rem;
+}
+.calendar.--editMode {
+  background: rgba(128, 255, 255, 0.3);
+}
+.calendar__mode {
+  text-align: right;
+}
+.calendar__mode select {
+  display: inline-block;
+  margin: 0 0.75rem;
 }
 .calendar__control {
   display: flex;
@@ -97,4 +108,13 @@ button, input, select, textarea {
 }
 .calendar__view th:last-child, .calendar__view td:last-child {
   color: blue;
+}
+.calendar__view td[data-state="0"] {
+  background: rgba(255, 128, 128, 0.5);
+}
+.calendar__view td[data-state="1"] {
+  background: rgba(255, 255, 128, 0.5);
+}
+.calendar__view td[data-state="2"] {
+  background: rgba(128, 255, 128, 0.5);
 }
