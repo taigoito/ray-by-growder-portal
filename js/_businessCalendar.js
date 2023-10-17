@@ -21,7 +21,8 @@ export default class BusinessCalendar extends Calendar {
     super._handleEvents();
 
     // モードの選択受付
-    const mode = document.getElementById('calendarMode');
+    const mode = document.querySelector('.calendar__mode');
+    if (!mode) return;
     mode.addEventListener('change', () => {
       this._elem.classList.toggle('--editMode');
     });

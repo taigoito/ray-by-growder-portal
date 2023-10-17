@@ -6,8 +6,6 @@
 
 export default class Calendar {
   constructor(options = {}) {
-    this.options = options;
-
     // 日本語表記の定義
     // 0: 1月, 1: 2月...なので注意
     this._months = [
@@ -18,19 +16,29 @@ export default class Calendar {
     ];
 
     // 要素の定義
-    this._elem = document.getElementById('calendar');
-    this._prev = document.getElementById('calendarPrev');
-    this._next = document.getElementById('calendarNext');
-    this._prevText = document.getElementById('calendarPrevText');
-    this._currentText = document.getElementById('calendarCurrentText');
-    this._nextText = document.getElementById('calendarNextText');
-    this._head = document.getElementById('calendarHead');
-    this._body = document.getElementById('calendarBody');
+    this._elem = options.elem || document.getElementById('calendar');
+    this._prev = this._elem.querySelector('.calendar__prev');
+    this._next = this._elem.querySelector('.calendar__next');
+    this._prevText = this._elem.querySelector('.calendar__prevText');
+    this._currentText = this._elem.querySelector('.calendar__currentText');
+    this._nextText = this._elem.querySelector('.calendar__nextText');
+    this._head = this._elem.querySelector('.calendar__head');
+    this._body = this._elem.querySelector('.calendar__body');
 
     // 現在年月を取得
     const today = new Date();
     this.year = today.getFullYear();
     this.month = today.getMonth();
+
+    // オプション
+    this.options = options;
+    let month = options.month ? options.month % 12 : 0;
+    let year = options.year ? options.year : 0;
+    year += (this.month + month > 11) ? 1 : 0;
+
+    // 年月を修正
+    this.month = (this.month + month) % 12;
+    this.year += year;
 
     // カレンダーを作成
     this.makeCalendar(this.year, this.month);
@@ -40,6 +48,8 @@ export default class Calendar {
   }
 
   _handleEvents() {
+    if (!this._prev || !this._next) return;
+
     // 前月
     this._prev.addEventListener('click', (event) => {
       event.preventDefault();
@@ -73,9 +83,15 @@ export default class Calendar {
   }
 
   _changeLabels(year, month) {
-    this._prevText.textContent = this._months[(month + this._months.length - 1) % this._months.length];
-    this._currentText.textContent = `${year}年 ${this._months[month]}`;
-    this._nextText.textContent = this._months[(month + this._months.length + 1) % this._months.length];
+    if (this._prevText) {
+      this._prevText.textContent = this._months[(month + this._months.length - 1) % this._months.length];
+    }
+    if (this._currentText) {
+      this._currentText.textContent = `${year}年 ${this._months[month]}`;
+    }
+    if (this._nextText) {
+      this._nextText.textContent = this._months[(month + this._months.length + 1) % this._months.length];
+    }
   }
 
   _makeCalendarHead() {
