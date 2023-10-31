@@ -30,8 +30,6 @@ export default class Newsfeed {
   _render(data) {
     const keys = Object.keys(data);
     keys.forEach((key) => {
-      //console.log(data[key]);
-
       const clone = this.template.content.cloneNode(true);
       const tr = clone.querySelector('.news__feedItem');
       const input1 = clone.querySelector('.news__date');

@@ -12,6 +12,11 @@ new Newsfeed({
   url: url
 });
 
+import Pickup from './_pickup.js';
+new Pickup({
+  url: url
+});
+
 import BusinessCalendar from './_businessCalendar.js';
 new BusinessCalendar({
   url: url

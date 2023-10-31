@@ -1,8 +1,8 @@
 /**
- * News
+ * Pickup
  */
 
-.news {
+.pickup {
   width: 60rem;
   margin: 3rem auto;
 
@@ -10,7 +10,7 @@
     text-align: center;
   }
 
-  &__feed {
+  &__items {
     margin: auto;
     text-align: center;
   }
@@ -45,11 +45,11 @@
     vertical-align: middle;
 
     &:nth-child(1) {
-      width: 9rem;
+      width: 45rem;
     }
 
     &:nth-child(2) {
-      width: 45rem;
+      width: 9rem;
     }
 
     input[type="date"], textarea {

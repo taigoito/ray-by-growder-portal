@@ -20,10 +20,27 @@
           <tr class="news__feedItem">
             <td><input type="date" class="news__date">
               <br><span class="icon --refresh"></span><span class="icon --trash"></span></td>
-            <td><textarea rows="2" class="news__text"></textarea>
-              <br><input type="url" class="news__href"></td>
+            <td><label><textarea rows="2" class="news__text"></textarea></label>
+              <br><label>　　リンク先: <input type="url" class="news__href"></label></td>
           </tr>
         </template>
+      </div>
+      <div id="pickup" class="pickup">
+        <h2 class="pickup__heading">ピックアップ</h2>
+        <table class="pickup__items"></table>
+        <template id="pickupTemplate">
+          <tr class="pickup__item">
+            <td>
+              画像絶対パス: <input type="url" class="pickup__src">
+              <br>キャプション: <input type="text" class="pickup__caption">
+              <br>　　リンク先: <input type="url" class="pickup__href">
+            </td>
+            <td><span class="icon --refresh"></span></td>
+          </tr>
+        </template>
+        <div class="pickup__overlay --collapse">
+          <span class="icon --refresh"></span>
+        </div>
       </div>
       <div id="calendar" class="calendar">
         <h2 class="calendar__heading">営業日カレンダー</h2>
