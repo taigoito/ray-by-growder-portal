@@ -38,7 +38,7 @@ export default class BusinessCalendar extends Calendar {
       const week = td.dataset.week;
 
       // 週のデフォルト値
-      let state = (week == 0) ? 0 : (week == 6) ? 1 : 2;
+      let state = (week == 0) ? 0 : (week == 6) ? 0 : 1;
 
       // データがあれば、状態値を上書き
       const keys = Object.keys(data);
@@ -54,8 +54,8 @@ export default class BusinessCalendar extends Calendar {
 
     // 状態値を更新
     const target = event.target;
-    let state = target.dataset.state;
-    state = (state + 1) % 3;
+    let state = target.dataset.state - 0; // 数値型に変換
+    state = (state + 1) % 2;
     target.dataset.state = state;
 
     // データの更新をPUT
